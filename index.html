@@ -1,0 +1,225 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Jokeren</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Potje jokeren</h1>
+
+<div class="names">
+    <form>
+        <strong>Naam speler 1: <input id="player1"></strong>
+        <br>
+        <strong>Naam speler 2: <input id="player2"></strong>
+        <br>
+        <strong>Naam speler 3: <input id="player3"></strong>
+        <br>
+        <strong>Naam speler 4: <input id="player4"></strong>
+        <br>
+        <strong>Naam speler 5: <input id="player5"></strong>
+    </form>
+    <button class="btn btn-secondary" onclick="player1();player2();player3();player4()">Sla op</button>
+</div>
+
+<div id="container">
+Speler 1 is <strong id="player1name"></strong>
+    <br>
+    <form id="form1">
+        3 op een rij: <input id="first1">
+        <br>
+        3 dezelfde: <input id="second1">
+        <br>
+        4 op een rij <input id="third1">
+        <br>
+        4 dezelfde: <input id="fourth1">
+        <br>
+        5 op een rij: <input id="fifth1">
+        <br>
+        In één keer uit: <input id="sixth1">
+        <br>
+    </form>
+
+    <button class="btn btn-primary" onclick="add1()">Tel op</button>
+    <br>
+    Totaal <strong id="player1total"></strong>: <input id="total1">
+</div>
+
+<div id="container">
+Speler 2 is <strong id="player2name"></strong>
+        <br>
+        <form id="form2">
+            3 op een rij: <input id="first2">
+            <br>
+            3 dezelfde: <input id="second2">
+            <br>
+            4 op een rij <input id="third2">
+            <br>
+            4 dezelfde: <input id="fourth2">
+            <br>
+            5 op een rij: <input id="fifth2">
+            <br>
+            In één keer uit: <input id="sixth2">
+            <br>
+        </form>
+    
+        <button class="btn btn-primary" onclick="add2()">Tel op</button>
+        <br>
+        Totaal <strong id="player2total"></strong>: <input id="total2">
+</div>
+
+<div id="container">
+    Speler 3 is <strong id="player3name"></strong>
+            <br>
+            <form id="form3">
+                3 op een rij: <input id="first3">
+                <br>
+                3 dezelfde: <input id="second3">
+                <br>
+                4 op een rij <input id="third3">
+                <br>
+                4 dezelfde: <input id="fourth3">
+                <br>
+                5 op een rij: <input id="fifth3">
+                <br>
+                In één keer uit: <input id="sixth3">
+                <br>
+            </form>
+        
+            <button class="btn btn-primary" onclick="add3()">Tel op</button>
+            <br>
+            Totaal <strong id="player3total"></strong>: <input id="total3">
+    </div>
+
+    <div id="container">
+        Speler 4 is <strong id="player4name"></strong>
+                <br>
+                <form id="form4">
+                    3 op een rij: <input id="first4">
+                    <br>
+                    3 dezelfde: <input id="second4">
+                    <br>
+                    4 op een rij <input id="third4">
+                    <br>
+                    4 dezelfde: <input id="fourth4">
+                    <br>
+                    5 op een rij: <input id="fifth4">
+                    <br>
+                    In één keer uit: <input id="sixth4">
+                    <br>
+                </form>
+            
+                <button class="btn btn-primary" onclick="add4()">Tel op</button>
+                <br>
+                Totaal <strong id="player4total"></strong>: <input id="total4">
+        </div>
+
+<div id="controls">
+    <button class="btn btn-success" onclick="winner()">Bereken winnaar</button>
+    <button class="btn btn-danger" onclick="clear()">Wis alles</button>
+</div>
+
+En de winnaar is...<strong id="winner"></strong>
+
+<script>
+    function winner() {
+        var total1 = document.getElementById("total1").value;
+        var total2 = document.getElementById("total2").value;
+        var total3 = document.getElementById("total3").value;
+        var total4 = document.getElementById("total4").value;
+        var min  = Math.min(total1, total2, total3, total4);
+        var player1 = document.getElementById("player1").value;
+        var player2 = document.getElementById("player2").value;
+        var player3 = document.getElementById("player3").value;
+        var player4 = document.getElementById("player4").value;
+        if (min == total1){
+            document.getElementById("winner").innerHTML = player1;
+        } else if (min == total2) {
+            document.getElementById("winner").innerHTML = player2;
+        } else if (min == total3)  {
+            document.getElementById("winner").innerHTML = player3;
+        } else if (min == total4)  {
+            document.getElementById("winner").innerHTML = player4;
+        }
+    }
+
+    function player1() {
+        var player1 = document.getElementById("player1").value;
+        document.getElementById("player1name").innerHTML = player1;
+        document.getElementById("player1total").innerHTML = player1;
+    }
+
+    function player2() {
+    var player2 = document.getElementById("player2").value;
+        document.getElementById("player2name").innerHTML = player2;
+        document.getElementById("player2total").innerHTML = player2;
+    }
+
+    function player3() {
+    var player3 = document.getElementById("player3").value;
+        document.getElementById("player3name").innerHTML = player3;
+        document.getElementById("player3total").innerHTML = player3;
+    }
+
+    function player4() {
+        var player4 = document.getElementById("player4").value;
+        document.getElementById("player4name").innerHTML = player4;
+        document.getElementById("player4total").innerHTML = player4;
+    }
+
+    function add1(){
+    var a,b,c,d,e,f,g;
+    a=Number(document.getElementById("first1").value);
+    b=Number(document.getElementById("second1").value);
+    c=Number(document.getElementById("third1").value);
+    d=Number(document.getElementById("fourth1").value);
+    e=Number(document.getElementById("fifth1").value);
+    f=Number(document.getElementById("sixth1").value);
+    g = a + b + c + d + e + f;
+    document.getElementById("total1").value= g;
+    }
+
+    function add2(){
+    var a,b,c,d,e,f,g;
+    a=Number(document.getElementById("first2").value);
+    b=Number(document.getElementById("second2").value);
+    c=Number(document.getElementById("third2").value);
+    d=Number(document.getElementById("fourth2").value);
+    e=Number(document.getElementById("fifth2").value);
+    f=Number(document.getElementById("sixth2").value);
+    g = a + b + c + d + e + f;
+    document.getElementById("total2").value= g;
+    }
+
+    function add3(){
+    var a,b,c,d,e,f,g;
+    a=Number(document.getElementById("first3").value);
+    b=Number(document.getElementById("second3").value);
+    c=Number(document.getElementById("third3").value);
+    d=Number(document.getElementById("fourth3").value);
+    e=Number(document.getElementById("fifth3").value);
+    f=Number(document.getElementById("sixth3").value);
+    g = a + b + c + d + e + f;
+    document.getElementById("total3").value= g;
+    }
+
+    function add4(){
+    var a,b,c,d,e,f,g;
+    a=Number(document.getElementById("first4").value);
+    b=Number(document.getElementById("second4").value);
+    c=Number(document.getElementById("third4").value);
+    d=Number(document.getElementById("fourth4").value);
+    e=Number(document.getElementById("fifth4").value);
+    f=Number(document.getElementById("sixth4").value);
+    g = a + b + c + d + e + f;
+    document.getElementById("total4").value= g;
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html> 
