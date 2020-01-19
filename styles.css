@@ -1,16 +1,38 @@
 h1 {
     margin:0.5em;
+    text-align: center;
 }
 
 input {
     margin:2px;
 }
 
-#container {
+/*#container {
     margin: 0.5em;
     border: 3px solid black;
     padding: 0.5em;
     width:30%
+
+}*/
+
+#bottom {
+    margin: auto;
+    margin-top: 2em;
+    width: 50%;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#bottom p {
+    text-align: center;
+}
+
+#container {
+    margin: auto;
+    margin-top: 2em;
+    width: 85%;
+    border: 1px solid black;
+    padding: 10px;
 }
 
 #controls{
@@ -21,3 +43,31 @@ button {
     margin:0.5em;
 }
 
+.names {
+    margin: auto;
+    width: 85%;
+    padding: 10px;
+}
+
+.names form {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    overflow: auto;
+    text-align: center;
+}
+
+.names button {
+    margin: auto;
+    width: 100%;
+}
+
+input {
+    margin:auto;
+    width:80%;
+}
+
+#reset {
+    width:15%;
+    margin:0.5em;
+}
