@@ -1,73 +1,39 @@
-h1 {
-    margin:0.5em;
-    text-align: center;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /*background-color: #6A9DEE;*/
+    background-image: linear-gradient(to bottom right, #6A9DEE, #6B8AEE);
+}
+
+label {
+    width:110px;
+    display:inline-block;
+}
+
+#myTab {
+    background-color: white;
+    text-align: right !important;
+}
+
+#scores{
+    padding: 1em;
+    margin: 1em;
+    box-shadow: 0 0.938em 2.188em rgba(50,50,93,.15), 0 0.313em 0.938em rgba(0,0,0,.1);
+    border-radius: 8px;
+    background-color: #F0F3F7;
 }
 
 input {
-    margin:2px;
-}
-
-/*#container {
-    margin: 0.5em;
-    border: 3px solid black;
-    padding: 0.5em;
-    width:30%
-
-}*/
-
-#bottom {
-    margin: auto;
-    margin-top: 2em;
-    width: 85%;
-    border: 1px solid black;
-    padding: 10px;
-}
-
-#bottom p {
-    text-align: center;
-}
-
-#container {
-    margin: auto;
-    margin-top: 2em;
-    width: 85%;
-    border: 1px solid black;
-    padding: 10px;
-}
-
-#controls{
-    margin:0.5em;
+    align-self: center;
+    border-radius: 4px;
+    margin:0.25em;
+    width:10em;
+    
 }
 
 button {
-    margin:0.5em;
+    margin-right:1em;
+    margin-bottom:1em;
+    margin-top:1em;
 }
 
-.names {
-    margin: auto;
-    width: 85%;
-    padding: 10px;
-}
-
-.names form {
-    margin: auto;
-    width: 100%;
-    padding: 10px;
-    overflow: auto;
-    text-align: center;
-}
-
-.names button {
-    margin: auto;
-    width: 100%;
-}
-
-input {
-    margin:auto;
-    width:80%;
-}
-
-#reset {
-    width:15%;
-    margin:0.5em;
-}
+"nav nav-tabs" 

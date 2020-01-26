@@ -7,125 +7,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<div id="container">
+
+    <ul class="nav justify-content-center" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Spelers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Scores</a>
+        </li>
+      </ul>
 
 
-    <div class="names">
-        <h1>Potje jokeren</h1>
-        <form id="formnames">
-            <strong>Naam speler 1: <input id="player1"></strong>
-            <br>
-            <strong>Naam speler 2: <input id="player2"></strong>
-            <br>
-            <strong>Naam speler 3: <input id="player3"></strong>
-            <br>
-            <strong>Naam speler 4: <input id="player4"></strong>
-            <br>
-            <strong>Naam speler 5: <input id="player5"></strong>
-        </form>
-        <button class="btn btn-secondary" onclick="player1();player2();player3();player4()">Sla op</button>
+<div class="tab-content">
+    <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div id="container">
+            <div id="scores">
+                <h2>Met wie speel je?</h2>
+                    <form id="formnames">
+                        <strong><input id="player1" placeholder="Speler 1"></strong>
+                        <br>
+                        <strong><input id="player2" placeholder="Speler 2"></strong>
+                        <br>
+                        <strong><input id="player3" placeholder="Speler 3"></strong>
+                        <br>
+                        <strong><input id="player4" placeholder="Speler 4"></strong>
+                    </form>
+                <button class="btn btn-success" onclick="player1();player2();player3();player4()">Sla op</button>
+            </div>
+        </div>   
     </div>
 
-    <div id="container">
-        Speler 1 is <strong id="player1name"></strong>
-        <br>
-        <form id="form1">
-            3 op een rij: <input id="first1">
-            <br>
-            3 dezelfde: <input id="second1">
-            <br>
-            4 op een rij <input id="third1">
-            <br>
-            4 dezelfde: <input id="fourth1">
-            <br>
-            5 op een rij: <input id="fifth1">
-            <br>
-            In één keer uit: <input id="sixth1">
-            <br>
-        </form>
-
-        <button class="btn btn-primary" onclick="add1()">Tel op</button>
-        <br>
-        Totaal <strong id="player1total"></strong>: <input id="total1">
-    </div>
-
-    <div id="container">
-        Speler 2 is <strong id="player2name"></strong>
-            <br>
-            <form id="form2">
-                3 op een rij: <input id="first2">
+    <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
+        <div id="scores">
+                Speler 1 is <strong id="player1name">...</strong>
                 <br>
-                3 dezelfde: <input id="second2">
-                <br>
-                4 op een rij <input id="third2">
-                <br>
-                4 dezelfde: <input id="fourth2">
-                <br>
-                5 op een rij: <input id="fifth2">
-                <br>
-                In één keer uit: <input id="sixth2">
-                <br>
-            </form>
-        
-            <button class="btn btn-primary" onclick="add2()">Tel op</button>
-            <br>
-            Totaal <strong id="player2total"></strong>: <input id="total2">
-    </div>
-
-    <div id="container">
-        Speler 3 is <strong id="player3name"></strong>
-                <br>
-                <form id="form3">
-                    3 op een rij: <input id="first3">
+                <form id="form1">
+                    <label>3 op een rij</label> <input id="first1">
                     <br>
-                    3 dezelfde: <input id="second3">
+                    <label>3 dezelfde</label> <input id="second1">
                     <br>
-                    4 op een rij <input id="third3">
+                    <label>4 op een rij</label> <input id="third1">
                     <br>
-                    4 dezelfde: <input id="fourth3">
+                    <labeL>4 dezelfde</labeL> <input id="fourth1">
                     <br>
-                    5 op een rij: <input id="fifth3">
+                    <label>5 op een rij</label> <input id="fifth1">
                     <br>
-                    In één keer uit: <input id="sixth3">
+                    <label>In één keer uit</label> <input id="sixth1">
                     <br>
                 </form>
-            
-                <button class="btn btn-primary" onclick="add3()">Tel op</button>
+
+                <button class="btn btn-primary" onclick="add1()">Tel op</button>
                 <br>
-                Totaal <strong id="player3total"></strong>: <input id="total3">
+                <label>Totaal <strong id="player1total"></strong></label> <input id="total1">
         </div>
 
-    <div id="container">
-        Speler 4 is <strong id="player4name"></strong>
-                <br>
-                <form id="form4">
-                    3 op een rij: <input id="first4">
+        <div id="scores">
+                Speler 2 is <strong id="player2name">...</strong>
                     <br>
-                    3 dezelfde: <input id="second4">
+                    <form id="form2">
+                        <label>3 op een rij</label> <input id="first2">
+                        <br>
+                        <label>3 dezelfde</label> <input id="second2">
+                        <br>
+                        <label>4 op een rij</label> <input id="third2">
+                        <br>
+                        <label>4 dezelfde</label> <input id="fourth2">
+                        <br>
+                        <label>5 op een rij</label> <input id="fifth2">
+                        <br>
+                        <label>In één keer uit</label> <input id="sixth2">
+                        <br>
+                    </form>
+                
+                    <button class="btn btn-primary" onclick="add2()">Tel op</button>
                     <br>
-                    4 op een rij <input id="third4">
-                    <br>
-                    4 dezelfde: <input id="fourth4">
-                    <br>
-                    5 op een rij: <input id="fifth4">
-                    <br>
-                    In één keer uit: <input id="sixth4">
-                    <br>
-                </form>
-                <button class="btn btn-primary" onclick="add4()">Tel op</button>
-                <br>
-                Totaal <strong id="player4total"></strong>: <input id="total4">
+                    <label>Totaal <strong id="player2total"></strong></label> <input id="total2">
         </div>
-    <div id="bottom">
-        <div id="controls">
-            <button class="btn btn-success" onclick="winner()">Bereken winnaar</button>
-            <button class="btn btn-danger" onclick="clear()">Wis alles</button>
+
+        <div id="scores">
+                Speler 3 is <strong id="player3name">...</strong>
+                        <br>
+                        <form id="form3">
+                            <label>3 op een rij</label> <input id="first3">
+                            <br>
+                            <label>3 dezelfde</label> <input id="second3">
+                            <br>
+                            <label>4 op een rij</label> <input id="third3">
+                            <br>
+                            <label>4 dezelfde</label> <input id="fourth3">
+                            <br>
+                            <label>5 op een rij</label> <input id="fifth3">
+                            <br>
+                            <label>In één keer uit</label> <input id="sixth3">
+                            <br>
+                        </form>
+                    
+                        <button class="btn btn-primary" onclick="add3()">Tel op</button>
+                        <br>
+                        <label>Totaal <strong id="player3total"></strong></label> <input id="total3">
         </div>
-         <h2>En de winnaar is...<strong id="winner"></strong></h2>
+
+        <div id="scores">
+                Speler 4 is <strong id="player4name">...</strong>
+                        <br>
+                        <form id="form4">
+                            <label>3 op een rij</label> <input id="first4">
+                            <br>
+                            <label>3 dezelfde</label> <input id="second4">
+                            <br>
+                            <label>4 op een rij</label> <input id="third4">
+                            <br>
+                            <label>4 dezelfde</label> <input id="fourth4">
+                            <br>
+                            <label>5 op een rij</label> <input id="fifth4">
+                            <br>
+                            <label>In één keer uit</label> <input id="sixth4">
+                            <br>
+                        </form>
+                        <button class="btn btn-primary" onclick="add4()">Tel op</button>
+                        <br>
+                        <label>Totaal <strong id="player4total"></strong></label> <input id="total4">
+        </div>
+
+        <div id="scores">
+            <div id="controls">
+                <button class="btn btn-success" onclick="winner()">Bereken winnaar</button>
+                <button class="btn btn-danger" onclick="clear()">Wis alles</button>
+            </div>
+            <h2>En de winnaar is...<strong id="winner"></strong></h2>
+        </div>
     </div>
 </div>
 
 <script>
+        $(function () {
+          $('#myTab li:last-child a').tab('show')
+        })   
+    
     function clear()  {
     // clearing inputs
     var inputs = form.getElementsByTagName('input');
