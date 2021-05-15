@@ -155,16 +155,16 @@
 
         <div id="scores">
             <div id="controls">
-                <button id="do-confetti" onclick="winner()" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Bereken winnaar</button>
+                <button id="do-confetti" onclick="winner()" type="button" class="btn btn-success" data-toggle="modal" data-backdrop="false" data-target="#myModal">Bereken winnaar</button>
+                <button class="btn btn-secondary" onclick="add1();add2();add3();add4();add5()">Tel alles op</button>
                 <button class="btn btn-danger" onclick="clear()">Wis alles</button>
+
                 <div class="modal" id="myModal" role="dialog">
                     <div class="modal-dialog">
-                        <div class="card">
-                            <div class="text-right cross"> <i class="fa fa-times"></i> </div>
+
                             <div class="card-body text-center"> <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/274/party-popper_1f389.png">
-                                <h4>GEFELICITEERD!</h4>
                                 <h2><strong id="winner"></strong></h2>
-                            </div>
+
                         </div>
                     </div>
                 </div>
