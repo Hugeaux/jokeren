@@ -31,8 +31,10 @@
                         <strong><input id="player3" placeholder="Speler 3"></strong>
                         <br>
                         <strong><input id="player4" placeholder="Speler 4"></strong>
+                        <br>
+                        <strong><input id="player5" placeholder="Speler 5"></strong>
                     </form>
-                <button class="btn btn-success" onclick="player1();player2();player3();player4()">Spelen!</button>
+                <button class="btn btn-success" onclick="player1();player2();player3();player4();player5()">Spelen</button>
             </div>
         </div>   
     </div>
@@ -130,11 +132,43 @@
         </div>
 
         <div id="scores">
+            Speler 5 is <strong id="player5name">...</strong>
+                    <br>
+                    <form id="form4">
+                        <label>3 op een rij</label> <input id="first5">
+                        <br>
+                        <label>3 dezelfde</label> <input id="second5">
+                        <br>
+                        <label>4 op een rij</label> <input id="third5">
+                        <br>
+                        <label>4 dezelfde</label> <input id="fourth5">
+                        <br>
+                        <label>5 op een rij</label> <input id="fifth5">
+                        <br>
+                        <label>In één keer uit</label> <input id="sixth5">
+                        <br>
+                    </form>
+                    <button class="btn btn-primary" onclick="add5()">Tel op</button>
+                    <br>
+                    <label>Totaal <strong id="player5total"></strong></label> <input id="total5">
+    </div>
+
+        <div id="scores">
             <div id="controls">
-                <button id="do-confetti" class="btn btn-success" onclick="winner()">Bereken winnaar</button>
+                <button id="do-confetti" onclick="winner()" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Bereken winnaar</button>
                 <button class="btn btn-danger" onclick="clear()">Wis alles</button>
+                <div class="modal" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="card">
+                            <div class="text-right cross"> <i class="fa fa-times"></i> </div>
+                            <div class="card-body text-center"> <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/274/party-popper_1f389.png">
+                                <h4>GEFELICITEERD!</h4>
+                                <h2><strong id="winner"></strong></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h2>En de winnaar is...<strong id="winner"></strong></h2>
         </div>
     </div>
 </div>
@@ -177,19 +211,23 @@
         var total2 = document.getElementById("total2").value;
         var total3 = document.getElementById("total3").value;
         var total4 = document.getElementById("total4").value;
-        var min  = Math.min(total1, total2, total3, total4);
+        var total5 = document.getElementById("total5").value;
+        var min  = Math.min(total1, total2, total3, total4, total5);
         var player1 = document.getElementById("player1").value;
         var player2 = document.getElementById("player2").value;
         var player3 = document.getElementById("player3").value;
         var player4 = document.getElementById("player4").value;
+        var player5 = document.getElementById("player5").value;
         if (min == total1){
-            document.getElementById("winner").innerHTML = player1;
+            document.getElementById("winner").innerHTML = player1 + ' heeft gewonnen!';
         } else if (min == total2) {
-            document.getElementById("winner").innerHTML = player2;
+            document.getElementById("winner").innerHTML = player2 + ' heeft gewonnen!';
         } else if (min == total3)  {
-            document.getElementById("winner").innerHTML = player3;
+            document.getElementById("winner").innerHTML = player3 + ' heeft gewonnen!';
         } else if (min == total4)  {
-            document.getElementById("winner").innerHTML = player4;
+            document.getElementById("winner").innerHTML = player4 + ' heeft gewonnen!';
+        } else if (min == total5)  {
+            document.getElementById("winner").innerHTML = player5 + ' heeft gewonnen!';
         }
     }
 
@@ -215,6 +253,12 @@
         var player4 = document.getElementById("player4").value;
         document.getElementById("player4name").innerHTML = player4;
         document.getElementById("player4total").innerHTML = player4;
+    }
+
+    function player5() {
+        var player4 = document.getElementById("player5").value;
+        document.getElementById("player5name").innerHTML = player4;
+        document.getElementById("player5total").innerHTML = player4;
     }
 
     function add1(){
@@ -264,6 +308,19 @@
     g = a + b + c + d + e + f;
     document.getElementById("total4").value= g;
     }
+
+    function add5(){
+    var a,b,c,d,e,f,g;
+    a=Number(document.getElementById("first5").value);
+    b=Number(document.getElementById("second5").value);
+    c=Number(document.getElementById("third5").value);
+    d=Number(document.getElementById("fourth5").value);
+    e=Number(document.getElementById("fifth5").value);
+    f=Number(document.getElementById("sixth5").value);
+    g = a + b + c + d + e + f;
+    document.getElementById("total5").value= g;
+    }
+
 </script>
 <script type="module">
     import confetti from 'https://cdn.skypack.dev/canvas-confetti';
@@ -273,6 +330,20 @@
             particleCount: 200,
             startVelocity: 30,
             spread: 360
+        });
+          // launch a few confetti from the left edge
+        confetti({
+            particleCount: 200,
+            angle: 60,
+            spread: 360,
+            origin: { x: 0 }
+        });
+        // and launch a few from the right edge
+        confetti({
+            particleCount: 200,
+            angle: 120,
+            spread: 360,
+            origin: { x: 1 }
         });
     });
     </script>
