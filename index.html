@@ -126,6 +126,8 @@ function renderGameArea() {
         `;
     }
 
+    const buttonText = currentRound === MAX_ROUNDS ? "Eindstand" : "Volgende Ronde";
+
     gameArea.innerHTML = `
         <h2>Ronde ${currentRound}: ${currentGoal}</h2>
         ${cumulativeScoresHTML}
@@ -136,17 +138,9 @@ function renderGameArea() {
                     <input type="number" id="score${index}" class="form-control" placeholder="Voer score in" required>
                 </div>
             `).join("")}
-            <button type="button" onclick="submitRound()" class="btn btn-primary">Volgende Ronde</button>
+            <button type="button" onclick="submitRound()" class="btn btn-primary">${buttonText}</button>
         </form>
     `;
-
-    if (currentRound === MAX_ROUNDS) {
-        gameArea.innerHTML += `
-            <div class="mt-3">
-                <button id="do-confetti" onclick="calculateWinner()" type="button" class="btn btn-success" data-toggle="modal" data-backdrop="false" data-target="#myModal">Bereken Winnaar</button>
-            </div>
-        `;
-    }
 }
 
 function submitRound() {
@@ -177,11 +171,11 @@ function submitRound() {
 function endGame() {
     const gameArea = document.getElementById("gameArea");
     const cumulativeScoresHTML = `
-        <h3>Final Scores</h3>
+        <h3>Eindstand</h3>
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Player</th>
+                    <th>Speler</th>
                     <th>Score</th>
                 </tr>
             </thead>
@@ -200,9 +194,34 @@ function endGame() {
         <h2>Game Over</h2>
         ${cumulativeScoresHTML}
         <div class="mt-3">
-            <button id="do-confetti" onclick="calculateWinner()" type="button" class="btn btn-success" data-toggle="modal" data-backdrop="false" data-target="#myModal">Bereken Winnaar</button>
+            <button id="do-confetti" onclick="calculateWinnerAndTriggerConfetti()" type="button" class="btn btn-success" data-toggle="modal" data-backdrop="false" data-target="#myModal">Bereken Winnaar</button>
         </div>
     `;
+}
+
+function calculateWinnerAndTriggerConfetti() {
+    calculateWinner();
+    triggerConfetti();
+}
+
+function triggerConfetti() {
+    confetti({
+        particleCount: 200,
+        startVelocity: 30,
+        spread: 360
+    });
+    confetti({
+        particleCount: 200,
+        angle: 60,
+        spread: 360,
+        origin: { x: 0 }
+    });
+    confetti({
+        particleCount: 200,
+        angle: 120,
+        spread: 360,
+        origin: { x: 1 }
+    });
 }
 
 function calculateWinner() {
@@ -225,29 +244,6 @@ document.getElementById("playerCount").addEventListener("change", updatePlayerNa
 // Initialize player names inputs
 updatePlayerNames();
 
-</script>
-<script type="module">
-    import confetti from 'https://cdn.skypack.dev/canvas-confetti';
-    const confButton = document.querySelector("#do-confetti");
-    confButton.addEventListener("click", () => {
-        confetti({
-            particleCount: 200,
-            startVelocity: 30,
-            spread: 360
-        });
-        confetti({
-            particleCount: 200,
-            angle: 60,
-            spread: 360,
-            origin: { x: 0 }
-        });
-        confetti({
-            particleCount: 200,
-            angle: 120,
-            spread: 360,
-            origin: { x: 1 }
-        });
-    });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
