@@ -21,9 +21,9 @@
         <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div id="container">
                 <div id="scores">
-                    <h2>Game Setup</h2>
+                    <h2>Setup</h2>
                     <form id="setupForm">
-                        <label for="playerCount">Number of players:</label>
+                        <label for="playerCount">Aantal spelers:</label>
                         <select id="playerCount" class="form-control">
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -32,7 +32,7 @@
                             <option value="6">6</option>
                         </select>
                         <div id="playerNames" class="mt-3"></div>
-                        <button type="button" class="btn btn-success mt-3" onclick="startGame()">Start Game</button>
+                        <button type="button" class="btn btn-success mt-3" onclick="startGame()">Start Spel</button>
                     </form>
                 </div>
             </div>   
@@ -41,7 +41,7 @@
         <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
             <div id="gameArea" class="mt-3"></div>
             <div id="controls" class="mt-3">
-                <button id="do-confetti" onclick="calculateWinner()" type="button" class="btn btn-success" data-toggle="modal" data-backdrop="false" data-target="#myModal">Calculate Winner</button>
+                <button id="do-confetti" onclick="calculateWinner()" type="button" class="btn btn-success" data-toggle="modal" data-backdrop="false" data-target="#myModal">Bereken Winnaar</button>
             </div>
         </div>
     </div>
@@ -50,7 +50,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body text-center">
-                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/274/party-popper_1f389.png">
+    
                     <h2><strong id="winner"></strong></h2>
                 </div>
             </div>
@@ -78,7 +78,7 @@ function updatePlayerNames() {
     for (let i = 1; i <= playerCount; i++) {
         playerNamesDiv.innerHTML += `
             <div class="form-group">
-                <label for="player${i}">Player ${i} name:</label>
+                <label for="player${i}">Speler ${i} naam:</label>
                 <input type="text" id="player${i}" class="form-control" required>
             </div>
         `;
@@ -92,7 +92,7 @@ function startGame() {
     for (let i = 1; i <= playerCount; i++) {
         const name = document.getElementById(`player${i}`).value;
         if (!name) {
-            alert("Please enter names for all players.");
+            alert("Voer een naam in voor alle spelers.");
             return;
         }
         players.push({ name, scores: [] });
@@ -109,11 +109,11 @@ function renderGameArea() {
     let cumulativeScoresHTML = '';
     if (currentRound > 1) {
         cumulativeScoresHTML = `
-            <h3>Cumulative Scores</h3>
+            <h3>Totaal Scores</h3>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Player</th>
+                        <th>Speler</th>
                         <th>Score</th>
                     </tr>
                 </thead>
@@ -136,17 +136,17 @@ function renderGameArea() {
             ${players.map((player, index) => `
                 <div class="form-group">
                     <label for="score${index}">${player.name}'s score:</label>
-                    <input type="number" id="score${index}" class="form-control" placeholder="Enter score" required>
+                    <input type="number" id="score${index}" class="form-control" placeholder="Voer score in" required>
                 </div>
             `).join("")}
-            <button type="button" onclick="submitRound()" class="btn btn-primary">Submit Round</button>
+            <button type="button" onclick="submitRound()" class="btn btn-primary">Volgende Ronde</button>
         </form>
     `;
 
     if (currentRound === MAX_ROUNDS) {
         gameArea.innerHTML += `
             <div class="mt-3">
-                <button onclick="calculateWinner()" type="button" class="btn btn-success" data-toggle="modal" data-backdrop="false" data-target="#myModal">Calculate Winner</button>
+                <button onclick="calculateWinner()" type="button" class="btn btn-success" data-toggle="modal" data-backdrop="false" data-target="#myModal">Bereken Winnaar</button>
             </div>
         `;
     }
@@ -154,13 +154,13 @@ function renderGameArea() {
 
 function submitRound() {
     if (currentRound > MAX_ROUNDS) {
-        alert("The game is over. Please calculate the winner.");
+        alert("Het spel is afgelopen. Bereken de winnaar.");
         return;
     }
 
     const form = document.getElementById("roundForm");
     if (!form.checkValidity()) {
-        alert("Please enter scores for all players.");
+        alert("Voer een score in voor elke speler.");
         return;
     }
 
@@ -210,7 +210,7 @@ function endGame() {
 
 function calculateWinner() {
     if (currentRound <= MAX_ROUNDS) {
-        alert("Please complete all 6 rounds before calculating the winner.");
+        alert("Spel nog niet afgelopen. Bereken de winnaar pas na 6 rondes.");
         return;
     }
 
@@ -219,7 +219,7 @@ function calculateWinner() {
     const winnerIndex = totalScores.indexOf(winningScore);
     const winner = players[winnerIndex];
     
-    document.getElementById("winner").innerHTML = `${winner.name} has won with ${winningScore} points!`;
+    document.getElementById("winner").innerHTML = `${winner.name} heeft gewonnen met ${winningScore} punten!`;
 }
 
 // Add event listener for player count change
