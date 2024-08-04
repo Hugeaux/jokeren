@@ -10,10 +10,10 @@
 
     <ul class="nav justify-content-center" id="myTab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Setup</a>
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Instellingen</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Game</a>
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Spel</a>
         </li>
     </ul>
 
@@ -21,7 +21,7 @@
         <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div id="container">
                 <div id="scores">
-                    <h2>Setup</h2>
+                    <h2>Instellingen</h2>
                     <form id="setupForm">
                         <label for="playerCount">Aantal spelers:</label>
                         <select id="playerCount" class="form-control">
@@ -130,7 +130,7 @@ function renderGameArea() {
     }
 
     gameArea.innerHTML = `
-        <h2>Round ${currentRound}: ${currentGoal}</h2>
+        <h2>Ronde ${currentRound}: ${currentGoal}</h2>
         ${cumulativeScoresHTML}
         <form id="roundForm">
             ${players.map((player, index) => `
