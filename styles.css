@@ -1,41 +1,85 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    /*background-color: #6A9DEE;*/
-    background-image: linear-gradient(to bottom right, #6A9DEE, #6B8AEE);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f4f4f4;
 }
 
-label {
-    width:110px;
-    display:inline-block;
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#myTab {
-    background-color: white;
-    text-align: right !important;
+h2 {
+    color: #333;
+    margin-bottom: 20px;
 }
 
-#scores{
-    padding: 1em;
-    margin: 1em;
-    box-shadow: 0 0.938em 2.188em rgba(50,50,93,.15), 0 0.313em 0.938em rgba(0,0,0,.1);
-    border-radius: 8px;
-    background-color: #F0F3F7;
+.form-group {
+    margin-bottom: 15px;
 }
 
-input {
-    align-self: center;
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
     border-radius: 4px;
-    margin:0.25em;
-    width:10em;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.nav-tabs {
+    margin-bottom: 20px;
+}
+
+.tab-content {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+}
+
+#gameArea {
+    margin-top: 20px;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.modal-body img {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+#winner {
+    font-size: 24px;
+    color: #28a745;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
     
-}
-
-button {
-    margin-right:1em;
-    margin-bottom:1em;
-    margin-top:1em;
-}
-
-.modal {
-    margin-top: 10em;
+    .form-control {
+        font-size: 16px; /* Improves usability on mobile devices */
+    }
 }

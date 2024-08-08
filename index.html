@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Jokeren</title>
@@ -10,347 +10,245 @@
 
     <ul class="nav justify-content-center" id="myTab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Spelers</a>
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Instellingen</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Scores</a>
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Spel</a>
         </li>
-      </ul>
+    </ul>
 
-
-<div class="tab-content">
-    <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <div id="container">
-            <div id="scores">
-                <h2>Met wie speel je?</h2>
-                    <form id="formnames">
-                        <strong><input id="player1" placeholder="Speler 1"></strong>
-                        <br>
-                        <strong><input id="player2" placeholder="Speler 2"></strong>
-                        <br>
-                        <strong><input id="player3" placeholder="Speler 3"></strong>
-                        <br>
-                        <strong><input id="player4" placeholder="Speler 4"></strong>
-                        <br>
-                        <strong><input id="player5" placeholder="Speler 5"></strong>
+    <div class="tab-content">
+        <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div id="container">
+                <div id="scores">
+                    <h2>Instellingen</h2>
+                    <form id="setupForm">
+                        <label for="playerCount">Aantal spelers:</label>
+                        <select id="playerCount" class="form-control">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <div id="playerNames" class="mt-3"></div>
+                        <button type="button" class="btn btn-success mt-3" onclick="startGame()">Start Spel</button>
                     </form>
-                <button class="btn btn-success" onclick="player1();player2();player3();player4();player5()">Spelen</button>
-            </div>
-        </div>   
+                </div>
+            </div>   
+        </div>
+
+        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
+            <div id="gameArea" class="mt-3"></div>
+        </div>
     </div>
 
-    <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
-        <div id="scores">
-                Speler 1 is <strong id="player1name">...</strong>
-                <br>
-                <form id="form1">
-                    <label>3 op een rij</label> <input id="first1">
-                    <br>
-                    <label>3 dezelfde</label> <input id="second1">
-                    <br>
-                    <label>4 op een rij</label> <input id="third1">
-                    <br>
-                    <labeL>4 dezelfde</labeL> <input id="fourth1">
-                    <br>
-                    <label>5 op een rij</label> <input id="fifth1">
-                    <br>
-                    <label>In één keer uit</label> <input id="sixth1">
-                    <br>
-                </form>
-
-                <button class="btn btn-primary" onclick="add1()">Tel op</button>
-                <br>
-                <label>Totaal <strong id="player1total"></strong></label> <input id="total1">
-        </div>
-
-        <div id="scores">
-                Speler 2 is <strong id="player2name">...</strong>
-                    <br>
-                    <form id="form2">
-                        <label>3 op een rij</label> <input id="first2">
-                        <br>
-                        <label>3 dezelfde</label> <input id="second2">
-                        <br>
-                        <label>4 op een rij</label> <input id="third2">
-                        <br>
-                        <label>4 dezelfde</label> <input id="fourth2">
-                        <br>
-                        <label>5 op een rij</label> <input id="fifth2">
-                        <br>
-                        <label>In één keer uit</label> <input id="sixth2">
-                        <br>
-                    </form>
-                
-                    <button class="btn btn-primary" onclick="add2()">Tel op</button>
-                    <br>
-                    <label>Totaal <strong id="player2total"></strong></label> <input id="total2">
-        </div>
-
-        <div id="scores">
-                Speler 3 is <strong id="player3name">...</strong>
-                        <br>
-                        <form id="form3">
-                            <label>3 op een rij</label> <input id="first3">
-                            <br>
-                            <label>3 dezelfde</label> <input id="second3">
-                            <br>
-                            <label>4 op een rij</label> <input id="third3">
-                            <br>
-                            <label>4 dezelfde</label> <input id="fourth3">
-                            <br>
-                            <label>5 op een rij</label> <input id="fifth3">
-                            <br>
-                            <label>In één keer uit</label> <input id="sixth3">
-                            <br>
-                        </form>
-                    
-                        <button class="btn btn-primary" onclick="add3()">Tel op</button>
-                        <br>
-                        <label>Totaal <strong id="player3total"></strong></label> <input id="total3">
-        </div>
-
-        <div id="scores">
-                Speler 4 is <strong id="player4name">...</strong>
-                        <br>
-                        <form id="form4">
-                            <label>3 op een rij</label> <input id="first4">
-                            <br>
-                            <label>3 dezelfde</label> <input id="second4">
-                            <br>
-                            <label>4 op een rij</label> <input id="third4">
-                            <br>
-                            <label>4 dezelfde</label> <input id="fourth4">
-                            <br>
-                            <label>5 op een rij</label> <input id="fifth4">
-                            <br>
-                            <label>In één keer uit</label> <input id="sixth4">
-                            <br>
-                        </form>
-                        <button class="btn btn-primary" onclick="add4()">Tel op</button>
-                        <br>
-                        <label>Totaal <strong id="player4total"></strong></label> <input id="total4">
-        </div>
-
-        <div id="scores">
-            Speler 5 is <strong id="player5name">...</strong>
-                    <br>
-                    <form id="form4">
-                        <label>3 op een rij</label> <input id="first5">
-                        <br>
-                        <label>3 dezelfde</label> <input id="second5">
-                        <br>
-                        <label>4 op een rij</label> <input id="third5">
-                        <br>
-                        <label>4 dezelfde</label> <input id="fourth5">
-                        <br>
-                        <label>5 op een rij</label> <input id="fifth5">
-                        <br>
-                        <label>In één keer uit</label> <input id="sixth5">
-                        <br>
-                    </form>
-                    <button class="btn btn-primary" onclick="add5()">Tel op</button>
-                    <br>
-                    <label>Totaal <strong id="player5total"></strong></label> <input id="total5">
-    </div>
-
-        <div id="scores">
-            <div id="controls">
-                <button id="do-confetti" onclick="winner()" type="button" class="btn btn-success" data-toggle="modal" data-backdrop="false" data-target="#myModal">Bereken winnaar</button>
-                <button class="btn btn-secondary" onclick="add1();add2();add3();add4();add5()">Tel alles op</button>
-                <button class="btn btn-danger" onclick="clear()">Wis alles</button>
-
-                <div class="modal" id="myModal" role="dialog">
-                    <div class="modal-dialog">
-
-                            <div class="card-body text-center"> <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/274/party-popper_1f389.png">
-                                <h2><strong id="winner"></strong></h2>
-
-                        </div>
-                    </div>
+    <div class="modal" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+    
+                    <h2><strong id="winner"></strong></h2>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 <script>
-        $(function () {
-          $('#myTab li:last-child a').tab('show')
-        })   
+let players = [];
+let currentRound = 1;
+const MAX_ROUNDS = 6;
+const roundGoals = [
+    "3 op een rij",
+    "3 dezelfde",
+    "4 op een rij",
+    "4 dezelfde",
+    "5 op een rij",
+    "In één keer uit"
+];
+
+function updatePlayerNames() {
+    const playerCount = parseInt(document.getElementById("playerCount").value);
+    const playerNamesDiv = document.getElementById("playerNames");
+    playerNamesDiv.innerHTML = "";
     
-    function clear()  {
-    // clearing inputs
-    var inputs = form.getElementsByTagName('input');
-    for (var i = 0; i<inputs.length; i++) {
-        switch (inputs[i].type) {
-            // case 'hidden':
-            case 'text':
-                inputs[i].value = '';
-                break;
-            case 'radio':
-            case 'checkbox':
-                inputs[i].checked = false;   
+    for (let i = 1; i <= playerCount; i++) {
+        playerNamesDiv.innerHTML += `
+            <div class="form-group">
+                <label for="player${i}">Speler ${i} naam:</label>
+                <input type="text" id="player${i}" class="form-control" required>
+            </div>
+        `;
+    }
+}
+
+function startGame() {
+    const playerCount = parseInt(document.getElementById("playerCount").value);
+    players = [];
+    
+    for (let i = 1; i <= playerCount; i++) {
+        const name = document.getElementById(`player${i}`).value;
+        if (!name) {
+            alert("Voer een naam in voor alle spelers.");
+            return;
         }
+        players.push({ name, scores: [] });
+    }
+    
+    renderGameArea();
+    document.getElementById("profile-tab").click();
+}
+
+function renderGameArea() {
+    const gameArea = document.getElementById("gameArea");
+    const currentGoal = roundGoals[currentRound - 1];
+    
+    let cumulativeScoresHTML = '';
+    if (currentRound > 1) {
+        cumulativeScoresHTML = `
+            <h3>Totaal Scores</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Speler</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${players.map(player => `
+                        <tr>
+                            <td>${player.name}</td>
+                            <td>${player.scores.reduce((a, b) => a + b, 0)}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        `;
     }
 
-    // clearing selects
-    var selects = form.getElementsByTagName('select');
-    for (var i = 0; i<selects.length; i++)
-        selects[i].selectedIndex = 0;
+    const buttonText = currentRound === MAX_ROUNDS ? "Eindstand" : "Volgende Ronde";
 
-    // clearing textarea
-    var text= form.getElementsByTagName('textarea');
-    for (var i = 0; i<text.length; i++)
-        text[i].innerHTML= '';
+    gameArea.innerHTML = `
+        <h2>Ronde ${currentRound}: ${currentGoal}</h2>
+        ${cumulativeScoresHTML}
+        <form id="roundForm">
+            ${players.map((player, index) => `
+                <div class="form-group">
+                    <label for="score${index}">${player.name}'s score:</label>
+                    <input type="number" id="score${index}" class="form-control" placeholder="Voer score in" required>
+                </div>
+            `).join("")}
+            <button type="button" onclick="submitRound()" class="btn btn-primary">${buttonText}</button>
+        </form>
+    `;
+}
 
-    return false;
+function submitRound() {
+    if (currentRound > MAX_ROUNDS) {
+        alert("Het spel is afgelopen. Bereken de winnaar.");
+        return;
     }
 
-    function winner() {
-        var total1 = document.getElementById("total1").value;
-        var total2 = document.getElementById("total2").value;
-        var total3 = document.getElementById("total3").value;
-        var total4 = document.getElementById("total4").value;
-        var total5 = document.getElementById("total5").value;
-        var min  = Math.min(total1, total2, total3, total4, total5);
-        var player1 = document.getElementById("player1").value;
-        var player2 = document.getElementById("player2").value;
-        var player3 = document.getElementById("player3").value;
-        var player4 = document.getElementById("player4").value;
-        var player5 = document.getElementById("player5").value;
-        if (min == total1){
-            document.getElementById("winner").innerHTML = player1 + ' heeft gewonnen!';
-        } else if (min == total2) {
-            document.getElementById("winner").innerHTML = player2 + ' heeft gewonnen!';
-        } else if (min == total3)  {
-            document.getElementById("winner").innerHTML = player3 + ' heeft gewonnen!';
-        } else if (min == total4)  {
-            document.getElementById("winner").innerHTML = player4 + ' heeft gewonnen!';
-        } else if (min == total5)  {
-            document.getElementById("winner").innerHTML = player5 + ' heeft gewonnen!';
-        }
+    const form = document.getElementById("roundForm");
+    if (!form.checkValidity()) {
+        alert("Voer een score in voor elke speler.");
+        return;
     }
 
-    function player1() {
-        var player1 = document.getElementById("player1").value;
-        document.getElementById("player1name").innerHTML = player1;
-        document.getElementById("player1total").innerHTML = player1;
+    players.forEach((player, index) => {
+        const score = parseInt(document.getElementById(`score${index}`).value);
+        player.scores.push(score);
+    });
+    
+    currentRound++;
+    if (currentRound > MAX_ROUNDS) {
+        endGame();
+    } else {
+        renderGameArea();
+    }
+}
+
+function endGame() {
+    const gameArea = document.getElementById("gameArea");
+    const cumulativeScoresHTML = `
+        <h3>Eindstand</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Speler</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${players.map(player => `
+                    <tr>
+                        <td>${player.name}</td>
+                        <td>${player.scores.reduce((a, b) => a + b, 0)}</td>
+                    </tr>
+                `).join('')}
+            </tbody>
+        </table>
+    `;
+
+    gameArea.innerHTML = `
+        <h2>Game Over</h2>
+        ${cumulativeScoresHTML}
+        <div class="mt-3">
+            <button id="do-confetti" onclick="calculateWinnerAndTriggerConfetti()" type="button" class="btn btn-success" data-toggle="modal" data-backdrop="false" data-target="#myModal">Bereken Winnaar</button>
+        </div>
+    `;
+}
+
+function calculateWinnerAndTriggerConfetti() {
+    calculateWinner();
+    triggerConfetti();
+}
+
+function triggerConfetti() {
+    confetti({
+        particleCount: 200,
+        startVelocity: 30,
+        spread: 360
+    });
+    confetti({
+        particleCount: 200,
+        angle: 60,
+        spread: 360,
+        origin: { x: 0 }
+    });
+    confetti({
+        particleCount: 200,
+        angle: 120,
+        spread: 360,
+        origin: { x: 1 }
+    });
+}
+
+function calculateWinner() {
+    if (currentRound <= MAX_ROUNDS) {
+        alert("Spel nog niet afgelopen. Bereken de winnaar pas na 6 rondes.");
+        return;
     }
 
-    function player2() {
-    var player2 = document.getElementById("player2").value;
-        document.getElementById("player2name").innerHTML = player2;
-        document.getElementById("player2total").innerHTML = player2;
-    }
+    const totalScores = players.map(player => player.scores.reduce((a, b) => a + b, 0));
+    const winningScore = Math.min(...totalScores);
+    const winnerIndex = totalScores.indexOf(winningScore);
+    const winner = players[winnerIndex];
+    
+    document.getElementById("winner").innerHTML = `${winner.name} heeft gewonnen met ${winningScore} punten!`;
+}
 
-    function player3() {
-    var player3 = document.getElementById("player3").value;
-        document.getElementById("player3name").innerHTML = player3;
-        document.getElementById("player3total").innerHTML = player3;
-    }
+// Add event listener for player count change
+document.getElementById("playerCount").addEventListener("change", updatePlayerNames);
 
-    function player4() {
-        var player4 = document.getElementById("player4").value;
-        document.getElementById("player4name").innerHTML = player4;
-        document.getElementById("player4total").innerHTML = player4;
-    }
-
-    function player5() {
-        var player4 = document.getElementById("player5").value;
-        document.getElementById("player5name").innerHTML = player4;
-        document.getElementById("player5total").innerHTML = player4;
-    }
-
-    function add1(){
-    var a,b,c,d,e,f,g;
-    a=Number(document.getElementById("first1").value);
-    b=Number(document.getElementById("second1").value);
-    c=Number(document.getElementById("third1").value);
-    d=Number(document.getElementById("fourth1").value);
-    e=Number(document.getElementById("fifth1").value);
-    f=Number(document.getElementById("sixth1").value);
-    g = a + b + c + d + e + f;
-    document.getElementById("total1").value= g;
-    }
-
-    function add2(){
-    var a,b,c,d,e,f,g;
-    a=Number(document.getElementById("first2").value);
-    b=Number(document.getElementById("second2").value);
-    c=Number(document.getElementById("third2").value);
-    d=Number(document.getElementById("fourth2").value);
-    e=Number(document.getElementById("fifth2").value);
-    f=Number(document.getElementById("sixth2").value);
-    g = a + b + c + d + e + f;
-    document.getElementById("total2").value= g;
-    }
-
-    function add3(){
-    var a,b,c,d,e,f,g;
-    a=Number(document.getElementById("first3").value);
-    b=Number(document.getElementById("second3").value);
-    c=Number(document.getElementById("third3").value);
-    d=Number(document.getElementById("fourth3").value);
-    e=Number(document.getElementById("fifth3").value);
-    f=Number(document.getElementById("sixth3").value);
-    g = a + b + c + d + e + f;
-    document.getElementById("total3").value= g;
-    }
-
-    function add4(){
-    var a,b,c,d,e,f,g;
-    a=Number(document.getElementById("first4").value);
-    b=Number(document.getElementById("second4").value);
-    c=Number(document.getElementById("third4").value);
-    d=Number(document.getElementById("fourth4").value);
-    e=Number(document.getElementById("fifth4").value);
-    f=Number(document.getElementById("sixth4").value);
-    g = a + b + c + d + e + f;
-    document.getElementById("total4").value= g;
-    }
-
-    function add5(){
-    var a,b,c,d,e,f,g;
-    a=Number(document.getElementById("first5").value);
-    b=Number(document.getElementById("second5").value);
-    c=Number(document.getElementById("third5").value);
-    d=Number(document.getElementById("fourth5").value);
-    e=Number(document.getElementById("fifth5").value);
-    f=Number(document.getElementById("sixth5").value);
-    g = a + b + c + d + e + f;
-    document.getElementById("total5").value= g;
-    }
+// Initialize player names inputs
+updatePlayerNames();
 
 </script>
-<script type="module">
-    import confetti from 'https://cdn.skypack.dev/canvas-confetti';
-    const confButton = document.querySelector("#do-confetti");
-    confButton.addEventListener("click", () => {
-        confetti({
-            particleCount: 200,
-            startVelocity: 30,
-            spread: 360
-        });
-          // launch a few confetti from the left edge
-        confetti({
-            particleCount: 200,
-            angle: 60,
-            spread: 360,
-            origin: { x: 0 }
-        });
-        // and launch a few from the right edge
-        confetti({
-            particleCount: 200,
-            angle: 120,
-            spread: 360,
-            origin: { x: 1 }
-        });
-    });
-    </script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
-</html> 
+</html>
